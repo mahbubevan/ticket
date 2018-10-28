@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Airport List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2> Admin Name: <%= name%></h2>
+      <h2> Admin Role: <%= role%></h2>
+        <div class="airport-add">
+          <form class="" method="post" action="/createairportname">
+            <div class="table-responsive">
+              <table>
+                <tr class="form-group">
+                  <td>ADD Airport</td>
+                  <td>
+                    <input type="text" name="airportname" value="" class="form-control" autocomplete="off" placeholder="Airport Name">
+                  </td>
+                  <td>
+                    <input type="text" name="shortname" value="" placeholder="IATA CODE" class="form-control" autocomplete="off">
+                  </td>
+                  <td>
+                    <input type="text" name="countryname" value="" placeholder="Region" class="form-control" autocomplete="off">
+                  </td>
+                  <td>
+                    <input type="submit" name="" value="Add New Airport" class="btn btn-success">
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </div>
+        <br><br>
+        <div class="airport-list">
+          <table>
+            <tr>
+              <td>
+                Airport List
+              </td>
+              <td>
+                <select class="airportList" name="airportList">
+
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <br><br><br>
+        <div class="add-flightname">
+          <h5> Add Flight Name</h5>
+          <form class="" action="/createflightname" method="post">
+            <table>
+              <tr>
+                <td>Name </td>
+                <td>
+                  <input type="text" name="flightname" value="">
+                </td>
+                <td>
+                  <input type="text" name="shortname" value="" placeholder="shortname">
+                </td>
+                <td>Cost</td>
+                <td>
+                  <input type="number" name="cost" value="">
+                </td>
+                <td>Cost Type</td>
+                <td>
+                  <select class="" name="costtype">
+                    <option value="">--</option>
+                    <option value="economic">Economic</option>
+                    <option value="business">Business</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="submit" name="" value="Add New Flights" class="btn btn-info">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div><br><br>
+
+        <div class="addNewRoutes">
+          <h3>Add New AIR Routes</h3><br>
+          <form class="" action="/createairroute" method="post">
+            <table class="table">
+              <tr>
+                <td>Select Flights</td>
+                <td>
+                  <select class="" name="flight" id="flightname-list">
+
+                  </select>
+                </td>
+                <td> Departure </td>
+                <td>
+                  <select class="airportList" name="departure">
+
+                  </select>
+                </td>
+                <td> Arrival </td>
+                <td>
+                  <select class="airportList" name="arrival">
+
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Date </td>
+                <td>
+                  <input type="date" name="airdate" value="">
+                </td>
+                <td>Duration</td>
+                <td>
+                  <input type="text" name="duration" value="">
+                </td>
+              </tr>
+              <tr>
+                <td>Type </td>
+                <td>
+                  <select class="" name="type">
+                    <option value="">--</option>
+                    <option value="economic">Economic</option>
+                    <option value="business">Business</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Cost </td>
+                <td>
+                  <input type="" name="cost" value="">
+                </td>
+                <td>Cost Type</td>
+                <td>
+                  <select class="" name="costtype">
+                    <option value="">--</option>
+                    <option value="refund">Refundable</option>
+                    <option value="norefund">Non Refundable</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="submit" name="" value="Add New Routes" class="btn btn-primary">
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <br><br>
+        <div class="routeList">
+          <table class="table">
+            <caption>Air Route List</caption>
+            <tr>
+              <th>List</th>
+              <th>Flight Name</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+              <th>Duration</th>
+              <th>Take Off Date</th>
+              <th>Type</th>
+              <th>Cost</th>
+              <th>Cost Type</th>
+            </tr>
+            <tbody id="routeList">
+
+            </tbody>
+          </table>
+        </div>
+        <div class="logout">
+          <a href="/adminlogout">Logout</a>
+        </div>
+    </div>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="/assets/admin/airTicketSystem/airportList/script.js">
+
+  </script>
+  </body>
+</html>
