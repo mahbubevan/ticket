@@ -20,6 +20,13 @@ const createFlightNameController = require('./controllers/admin/airTicketSystem/
 const getFlightList = require('./controllers/admin/airTicketSystem/flightList/read/getFlightList');
 const createAirRoute = require('./controllers/admin/airTicketSystem/airRoute/create/createAirRoute');
 const getAirRouteList = require('./controllers/admin/airTicketSystem/airRoute/read/getAirRouteList');
+const baseController = require('./controllers/base/baseController');
+const userLoginController = require('./controllers/user/login/userLoginController');
+const userSignupController = require('./controllers/user/signup/userSignupController');
+const userController = require('./controllers/user/base/userController');
+const userLogoutController = require('./controllers/user/logout/userLogoutController');
+const getBaseAirRoute = require('./controllers/base/getBaseAirRoute');
+const userBooking = require('./controllers/user/booking/userBooking');
 //configuration
 app.set('view engine','ejs');
 
@@ -39,6 +46,13 @@ app.use('/adminlogout',adminLogoutController);
 app.use('/getflightlist',getFlightList);
 app.use('/createairroute',createAirRoute);
 app.use('/getairroutelist',getAirRouteList);
+app.use('/',baseController);
+app.use('/userlogin',userLoginController);
+app.use('/usersignup',userSignupController);
+app.use('/user',userController);
+app.use('/userlogout',userLogoutController);
+app.use('/getbaseairroute',getBaseAirRoute);
+app.use('/userbooking',userBooking);
 
 //server-startup
 app.listen(port,()=>console.log('Server Running: '+port));

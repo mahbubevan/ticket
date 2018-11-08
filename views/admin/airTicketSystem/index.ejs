@@ -9,28 +9,70 @@
     <div class="container">
       <h2> Admin Name: <%= name%></h2>
       <h2> Admin Role: <%= role%></h2>
-        <div class="airport-add">
+        <div class="row airport-add">
+          <div class="col-lg-6">
           <form class="" method="post" action="/createairportname">
             <div class="table-responsive">
               <table>
                 <tr class="form-group">
                   <td>ADD Airport</td>
                   <td>
-                    <input type="text" name="airportname" value="" class="form-control" autocomplete="off" placeholder="Airport Name">
+                    <input type="text" id="airportname" name="airportname" value="" class="form-control" autocomplete="off" placeholder="Airport Name">
                   </td>
                   <td>
-                    <input type="text" name="shortname" value="" placeholder="IATA CODE" class="form-control" autocomplete="off">
+                    <input type="text" id="iata" name="shortname" value="" placeholder="IATA CODE" class="form-control" autocomplete="off">
                   </td>
                   <td>
-                    <input type="text" name="countryname" value="" placeholder="Region" class="form-control" autocomplete="off">
+                    <input type="text" id="region" name="countryname" value="" placeholder="Region" class="form-control" autocomplete="off">
                   </td>
                   <td>
-                    <input type="submit" name="" value="Add New Airport" class="btn btn-success">
+                    <input type="submit" name="" value="Add New Airport" class="btn btn-success" id="addairport">
                   </td>
                 </tr>
               </table>
             </div>
           </form>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <form action="/getairportlist/makeedit" method="post">
+            <table class="table">
+              <tr>
+                <th>Airport Name</th>
+                <th>Short Name</th>
+                <th>Country</th>
+              </tr>
+              <tbody class="edit-panel">
+
+              </tbody>
+            <tr>
+              <td>
+                <input type="submit" name="" value="Edit" class="btn btn-info">
+              </td>
+            </tr>
+            </table>
+          </form>
+        </div>
+        <div class="row">
+          <form action="/getairportlist/makedelete" method="post">
+          <table class="table">
+            <tr>
+              <th>Airport Name</th>
+              <th>Short Name</th>
+              <th>Country</th>
+            </tr>
+            <tbody class="delete-panel">
+
+            </tbody>
+          <tr>
+            <td>
+              <input type="submit" name="" value="Delete" class="btn btn-danger" id="makedelete">
+            </td>
+          </tr>
+          </table>
+        </form>
+        </div>
+        </div>
         </div>
         <br><br>
         <div class="airport-list">
@@ -46,6 +88,7 @@
               </td>
             </tr>
           </table>
+
         </div>
         <br><br><br>
         <div class="add-flightname">
@@ -55,25 +98,25 @@
               <tr>
                 <td>Name </td>
                 <td>
-                  <input type="text" name="flightname" value="">
+                  <input type="text" id="fname" name="flightname" value="">
                 </td>
                 <td>
-                  <input type="text" name="shortname" value="" placeholder="shortname">
+                  <input type="text" id="fshort" name="shortname" value="" placeholder="shortname">
                 </td>
                 <td>Cost</td>
                 <td>
-                  <input type="number" name="cost" value="">
+                  <input type="number" id="fcost" name="cost" value="">
                 </td>
                 <td>Cost Type</td>
                 <td>
-                  <select class="" name="costtype">
+                  <select class="" name="costtype" id="fcosttype">
                     <option value="">--</option>
                     <option value="economic">Economic</option>
                     <option value="business">Business</option>
                   </select>
                 </td>
                 <td>
-                  <input type="submit" name="" value="Add New Flights" class="btn btn-info">
+                  <input type="submit" name="" value="Add New Flights" class="btn btn-info" id="addflight">
                 </td>
               </tr>
             </table>
@@ -107,17 +150,15 @@
               <tr>
                 <td>Date </td>
                 <td>
-                  <input type="date" name="airdate" value="">
+                  <input type="date" name="airdate" value="" id="airdate">
                 </td>
                 <td>Duration</td>
                 <td>
-                  <input type="text" name="duration" value="">
+                  <input type="text" name="duration" value="" id="duration">
                 </td>
-              </tr>
-              <tr>
                 <td>Type </td>
                 <td>
-                  <select class="" name="type">
+                  <select class="" name="type" id="type">
                     <option value="">--</option>
                     <option value="economic">Economic</option>
                     <option value="business">Business</option>
@@ -127,11 +168,11 @@
               <tr>
                 <td>Cost </td>
                 <td>
-                  <input type="" name="cost" value="">
+                  <input type="" name="cost" value="" id="cost">
                 </td>
                 <td>Cost Type</td>
                 <td>
-                  <select class="" name="costtype">
+                  <select class="" name="costtype" id="costtype">
                     <option value="">--</option>
                     <option value="refund">Refundable</option>
                     <option value="norefund">Non Refundable</option>
@@ -140,7 +181,7 @@
               </tr>
               <tr>
                 <td colspan="3">
-                  <input type="submit" name="" value="Add New Routes" class="btn btn-primary">
+                  <input type="submit" name="" value="Add New Routes" class="btn btn-primary" id="addroute">
                 </td>
               </tr>
             </table>
@@ -160,6 +201,7 @@
               <th>Type</th>
               <th>Cost</th>
               <th>Cost Type</th>
+              <th>Operation</th>
             </tr>
             <tbody id="routeList">
 
@@ -180,6 +222,12 @@
   crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="/assets/admin/airTicketSystem/airportList/script.js">
+
+  </script>
+  <script type="text/javascript" src="/assets/admin/validation/admin.js">
+
+  </script>
+   <script type="text/javascript" src="/assets/admin/airTicketSystem/airportList/edit-delete.js">
 
   </script>
   </body>

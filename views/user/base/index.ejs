@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Panel</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/user/dashboard/user.css">
+
+  </head>
+  <body>
+
+    <h2>Welcome <%= name%> </h2>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-lg-12" style="background-color:#ebebe0;">
+ <h5> Buy Air Ticket </h5>
+    <br/>
+Departure Airport: <input type="text" id="dep" class="form-control custom" name="departure" value="">
+Arrival Airport: <input type="text" id="arr" class="form-control custom" name="arrival" value="">
+<br>
+<input type="submit" name="" value="Search" class="btn btn-info" id="searchflight">
+<br> <hr>
+        <table class="table">
+            <tr>
+              <th>List</th>
+              <th>Flight Name</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+              <th>Duration</th>
+              <th>Take Off Date</th>
+              <th>Type</th>
+              <th>Cost</th>
+              <th>Cost Type</th>
+              <th>Operation</th>
+            </tr>
+            <tbody id="sugg-air">
+
+            </tbody>
+
+          </table>
+  </div>
+</div>
+
+    <div class="row">
+       <div class="col-lg-12" style="background-color:#c2c2a3;">
+
+            <h2>Previous Booking List</h2>
+            <table class="table">
+                        <tr>
+                          <th>Id</th>
+                          <th>flightname</th>
+                          <th>Departure</th>
+                          <th>Arrival</th>
+                          <th>Type</th>
+                          <th>Invoice Key</th>
+                          <th>Status</th>
+                          <th>Payment Type</th>
+                          <th>No Of Person</th>
+                          <th>Total Cost</th>
+                        </tr>
+                        <tbody id="getBooking">
+
+                        </tbody>
+              </table>
+      </div>
+    </div>
+
+</div>
+
+    <a href="/userlogout">Logout</a>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/assets/user/dashboard/script.js">
+
+    </script>
+  </body>
+</html>

@@ -5,9 +5,9 @@ router.get('/',function(req,res){
   if(req.session.name!=null){
     req.session.name = null;
     req.session.role = null;
-    res.redirect('/adminlogin');
+    res.redirect('/');
   }else{
-    res.redirect('/adminlogin');
+    res.redirect('/');
   }
 });
 
